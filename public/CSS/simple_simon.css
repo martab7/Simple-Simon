@@ -5,28 +5,33 @@ body {
 .box {
   width: 100px;
   height: 100px;
+  opacity: 1;
 }
 
 #square_one {
 	background: red;
   position: absolute;
   border: black solid;
+  opacity: 1;
 }
 
 #square_two {
 	background: blue;
   margin-left: 100px;
   border: black solid;
+  opacity: 1;
 }
 
 #square_three {
 	background: yellow;
   position: absolute;
   border: black solid;
+  opacity: 1;
 }
 
 #square_four {
 	background: green;
   margin-left: 100px;
   border: black solid;
+  opacity: 1;
 }
