@@ -4,30 +4,42 @@ var randomBoxesArray = []
 var correct = true
 var index = 0
 var count
+var buzzer = new Audio('../audio/beep-05.mp3')
+var buttonNoise = new Audio('../audio/beep-02.mp3')
 var boxes = $('.box')
 
+var gameTimer = 3;
+var interval = 1000;
+
+function bigTimer() {
+  setInterval(function updateTimer() {
+
+    if (gameTimer <= 0) {
+      $('p').prop('hidden', true)
+    } else {
+        $('p').removeAttr('hidden')
+        $('p').text(gameTimer)
+    }
+    gameTimer--;
+}, interval);
+
+}
 function start () {
   randomlySelectedItem = boxes[Math.floor(Math.random() * boxes.length)]
   simulatedPattern.push(randomlySelectedItem.getAttribute('data-value'))
-  animate();
-  // console.log(simulatedPattern)
+  animate()
 };
 
 function clickLights () {
-  var audio = {};
-  audio["walk"] = new Audio();
-  audio["walk"].src = "http://www.rangde.org/static/bell-ring-01.mp3"
-  audio["walk"].addEventListener('load', function () {
-    audio["walk"].play();
-          });
-      });
   boxes.each(function(){
     $(this).click(function (){
-      $(this).animate({
-        'opacity': '.1'
+      $(this).children('img').animate({
+        'height': '130%',
+        'width': '130%'
       }, 200).animate({
-        'opacity': '1'
-      }, 100)
+        'height': '100%',
+        'width': '100%'
+      }, 200)
     })
   })
 }
@@ -35,10 +47,12 @@ function clickLights () {
 function animate () {
   simulatedPattern.forEach(function(randomlySelectedItem, index) {
     setTimeout(function() {
-      $('[data-value="' + randomlySelectedItem + '"]').animate({
-        'opacity': '.5'
+      $('[data-value="' + randomlySelectedItem + '"]').children('img').animate({
+        'height': '130%',
+        'width': '130%'
       }, 500).animate({
-        'opacity': '1'
+        'height': '100%',
+        'width': '100%'
       },500)
     }, 1000 * index)
   })
@@ -46,13 +60,14 @@ function animate () {
 
 $('.box').click(function(event){
   if (simulatedPattern[index] === $(this).attr('data-value')) {
+    buttonNoise.play()
     index++
   } else {
     simulatedPattern = []
     correct = false
     index = 0
     randomBoxesArray = []
-    alert('you lose')
+    buzzer.play()
   };
   if (index === simulatedPattern.length && correct === true) {
     start()
@@ -64,8 +79,16 @@ $('.box').click(function(event){
 
 clickLights()
 $('#start').click(function () {
+  $('#start').animate({
+    'font-size': '55px'
+  }, 500).animate({
+    'font-size': '45px'
+  }, 500)
   simulatedPattern = []
   $('span').text('1')
   correct = true
-  start()
+  bigTimer()
+  setTimeout(function() {
+    start()
+  }, 4000)
 })
