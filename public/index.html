@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>Simple Simon Yo!</title>
 
+    <link href='https://fonts.googleapis.com/css?family=Fontdiner+Swanky' rel='stylesheet' type='text/css'>
     <!-- Bootstrap CDN -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
@@ -11,17 +12,24 @@
 
   </head>
   <body>
-    <div class="container">
+  <div class="site-wrapper">
+  <div class="site-wrapper-inner">
+    <div class="cover-container">
       <a id="start" type="submit" class="btn btn-default">Click To Start</a>
-      <h1>Round: <span>1</span></h1>
-      <div id="square_one" class="box" data-value="1"></div>
-      <div id="square_two" class="box" data-value="2"></div>
-      <div id="square_three" class="box" data-value="3"></div>
-      <div id="square_four" class="box" data-value="4"></div>
+      <h1>Operation</h1>
+      <h2>Round: <span>1</span></h2>
 
-
+      <div id="square_one" class="box" data-value="1"><img src="operation_pictures/acorn.png"></div>
+      <div id="square_two" class="box" data-value="2"><img src="operation_pictures/apple.png"></div>
+      <div id="square_three" class="box" data-value="3"><img src="operation_pictures/bread.png"></div>
+      <div id="square_four" class="box" data-value="4"><img src="operation_pictures/butterfly.png"></div>
+      <div id="square_five" class="box" data-value="5"><img src="operation_pictures/heart.png"></div>
+      <div id="square_six" class="box" data-value="6"><img src="operation_pictures/rubber_band.png"></div>
+      <div id="square_seven" class="box" data-value="7"><img src="operation_pictures/sunblock.png"></div>
+      <div id="square_eight" class="box" data-value="8"><img src="operation_pictures/wrench.png"></div>
     </div>
-
+  </div>
+  </div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
   <script src="JS/simple_simon.js"></script>

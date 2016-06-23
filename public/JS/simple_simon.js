@@ -14,17 +14,23 @@ function start () {
 };
 
 function clickLights () {
-    boxes.each(function(){
-      $(this).click(function (){
-        $(this).animate({
-          'opacity': '.5'
-        }, 100).animate({
-          'opacity': '1'
-        }, 100)
-      })
+  var audio = {};
+  audio["walk"] = new Audio();
+  audio["walk"].src = "http://www.rangde.org/static/bell-ring-01.mp3"
+  audio["walk"].addEventListener('load', function () {
+    audio["walk"].play();
+          });
+      });
+  boxes.each(function(){
+    $(this).click(function (){
+      $(this).animate({
+        'opacity': '.1'
+      }, 200).animate({
+        'opacity': '1'
+      }, 100)
+    })
   })
 }
-clickLights()
 
 function animate () {
   simulatedPattern.forEach(function(randomlySelectedItem, index) {
@@ -34,7 +40,7 @@ function animate () {
       }, 500).animate({
         'opacity': '1'
       },500)
-    }, 500 * index)
+    }, 1000 * index)
   })
 }
 
@@ -46,17 +52,20 @@ $('.box').click(function(event){
     correct = false
     index = 0
     randomBoxesArray = []
+    alert('you lose')
   };
   if (index === simulatedPattern.length && correct === true) {
     start()
     index = 0
     count = simulatedPattern.length
     $('span').text(count)
-    }
+  }
 })
 
+clickLights()
 $('#start').click(function () {
   simulatedPattern = []
   $('span').text('1')
+  correct = true
   start()
 })

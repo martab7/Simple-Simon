@@ -1,37 +1,118 @@
-body {
-  margin-top: 100px;
+body,
+html {
+  height: 100%;
+  background-color: #333;
 }
 
+.site-wrapper {
+  display: table;
+  width: 100%;
+  height: 100%; /* For at least Firefox */
+  min-height: 100%;
+
+  -webkit-box-shadow: inset 0 0 100px rgba(0,0,0,.5);
+          box-shadow: inset 0 0 100px rgba(0,0,0,.5);
+}
+.site-wrapper-inner {
+  display: table-cell;
+  vertical-align: top;
+  background-image: url(../operation_pictures/operation_clean.png);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+.cover-container {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+h1,
+h2 {
+  font-family: 'Fontdiner Swanky', cursive;
+  color: #D31615;
+}
+
+h1 {
+  position: absolute;
+  left: 14%;
+  font-size: 60px;
+}
+
+h2 {
+  position: absolute;
+  left: 8%;
+  top: 25%;
+  padding-top: 50px;
+}
 .box {
-  width: 100px;
-  height: 100px;
+  width: 50px;
+  height: 50px;
   opacity: 1;
+  -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+}
+
+img {
+  height: auto;
+  width: auto;
 }
 
 #square_one {
-	background: red;
   position: absolute;
-  border: black solid;
+  left: 53.5%;
+  top: 45.4%;
   opacity: 1;
 }
 
 #square_two {
-	background: blue;
-  margin-left: 100px;
-  border: black solid;
+  position: absolute;;
+  left: 42.5%;
+  top: 44.3%;
   opacity: 1;
 }
 
 #square_three {
-	background: yellow;
   position: absolute;
-  border: black solid;
+  left: 66%;
+  top: 47%;
   opacity: 1;
 }
 
 #square_four {
-	background: green;
-  margin-left: 100px;
-  border: black solid;
+  position: absolute;
+  left: 59.5%;
+  top: 42%;
   opacity: 1;
+}
+
+#square_five {
+  position: absolute;
+  left: 47%;
+  top: 41%;
+  opacity: 1;
+}
+#square_six {
+  position: absolute;
+  left: 76.7%;
+  top: 53.2%;
+  opacity: 1;
+}
+#square_seven {
+  position: absolute;
+  left: 45.3%;
+  top: 54.5%;
+  opacity: 1;
+}
+#square_eight {
+  position: absolute;
+  left: 80%;
+  top: 42.2%;
+  opacity: 1;
+  -webkit-transform: rotate(-58deg);
+    -moz-transform: rotate(-58deg);
+    -o-transform: rotate(-58deg);
+    -ms-transform: rotate(-58deg);
+    transform: rotate(-58deg);
 }
