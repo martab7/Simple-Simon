@@ -1,6 +1,5 @@
 var simulatedPattern = []
 var randomlySelectedItem
-var randomBoxesArray = []
 var correct = true
 var index = 0
 var count
@@ -8,22 +7,24 @@ var buzzer = new Audio('../audio/beep-05.mp3')
 var buttonNoise = new Audio('../audio/beep-02.mp3')
 var boxes = $('.box')
 
-var gameTimer = 3;
-var interval = 1000;
+var gameTimer = 3
+var interval = 1000
 
-function bigTimer() {
-  setInterval(function updateTimer() {
+function bigTimer () {
+  var countDown = setInterval(function updateTimer () {
 
     if (gameTimer <= 0) {
       $('p').prop('hidden', true)
+      gameTimer = 3
+      clearInterval(countDown)
     } else {
         $('p').removeAttr('hidden')
         $('p').text(gameTimer)
+        gameTimer--
     }
-    gameTimer--;
 }, interval);
-
 }
+
 function start () {
   randomlySelectedItem = boxes[Math.floor(Math.random() * boxes.length)]
   simulatedPattern.push(randomlySelectedItem.getAttribute('data-value'))
