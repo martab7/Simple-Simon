@@ -10,6 +10,7 @@ var boxes = $('.box')
 var gameTimer = 3
 var interval = 1000
 
+//---- Timer Function
 function bigTimer () {
   var countDown = setInterval(function updateTimer () {
 
@@ -25,6 +26,7 @@ function bigTimer () {
 }, interval);
 }
 
+//----- Start and Play Game Functions
 function start () {
   randomlySelectedItem = boxes[Math.floor(Math.random() * boxes.length)]
   simulatedPattern.push(randomlySelectedItem.getAttribute('data-value'))
@@ -59,6 +61,7 @@ function animate () {
   })
 }
 
+// ------ Click Function and Check
 $('.box').click(function(event){
   if (simulatedPattern[index] === $(this).attr('data-value')) {
     buttonNoise.play()
@@ -78,6 +81,7 @@ $('.box').click(function(event){
   }
 })
 
+// ---- Event
 clickLights()
 $('#start').click(function () {
   $('#start').animate({
